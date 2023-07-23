@@ -10,14 +10,16 @@ import { api } from './states/api';
 export const store = configureStore({
   reducer: {
     [api.reducerPath]: api.reducer,
-    middleware: (getDefault) => getDefault().concat(api.middleware),
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(api.middleware),
 });
 
 setupListeners(store.dispatch);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
 )
