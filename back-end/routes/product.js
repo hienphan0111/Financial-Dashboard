@@ -1,9 +1,9 @@
 import { Router } from "express";
-import Product from "../models/KPI.js";
+import Product from "../models/Product.js";
 
 const router = Router();
 
-router.get('/product', async (req, res) => {
+router.get('/products', async (req, res) => {
   try {
     const products = await Product.find();
     res.status(200).json(products);
