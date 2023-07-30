@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // ROUTES
 
 app.use('/kpi', kpiRoutes);
+app.use('/product', productRoutes);
 
 // MONGO SETUP
 
