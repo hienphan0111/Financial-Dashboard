@@ -6,8 +6,10 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import kpiRoutes from './routes/kpi.js';
+import productRoutes from './routes/product.js';
+import Product from './models/Product.js';
 import KPI from './models/KPI.js';
-import { kpis } from './db/data.js';
+import { kpis, products } from './db/data.js';
 
 dotenv.config();
 const app = express();
@@ -38,6 +40,7 @@ mongoose
 
     // await mongoose.connection.dropDatabase();
     // KPI.insertMany(kpis);
+    // Product.insertMany(products);
   })
   .catch((error) => console.log(`${error} did not connect`));
 
