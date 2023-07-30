@@ -11,6 +11,7 @@ import {
   Area,
 } from 'recharts';
 import { useTheme } from '@mui/material';
+import BoxHeader from '@/components/BoxHeader';
 
 type Props = {};
 
@@ -35,6 +36,11 @@ const Row1 = (props: Props) => {
   return (
     <>
       <DashboardBox gridArea='a'>
+        <BoxHeader
+          title="Revenue and Expenses"
+          subtitle="top line represents revenue, bottom line represents expenses"
+          sideText="+4%"
+        />
         <ResponsiveContainer width='100%' height='100%'>
           <AreaChart
             width={500}
