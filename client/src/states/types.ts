@@ -20,6 +20,7 @@ export interface Day {
 }
 
 export interface GetKpisResponse {
+  totalExpenses: any;
   id: string;
   _id: string;
   __v: number;
