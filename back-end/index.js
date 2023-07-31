@@ -7,9 +7,11 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import kpiRoutes from './routes/kpi.js';
 import productRoutes from './routes/product.js';
+import transactionRoutes from './routes/transaction.js';
 import Product from './models/Product.js';
 import KPI from './models/KPI.js';
-import { kpis, products } from './db/data.js';
+import Transaction from './models/Transaction.js';
+import { kpis, products, transactions } from './db/data.js';
 
 dotenv.config();
 const app = express();
@@ -26,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/kpi', kpiRoutes);
 app.use('/product', productRoutes);
+app.use('/transaction', transactionRoutes);
 
 // MONGO SETUP
 
@@ -41,6 +44,7 @@ mongoose
     // await mongoose.connection.dropDatabase();
     // KPI.insertMany(kpis);
     // Product.insertMany(products);
+    // Transaction.insertMany(transactions);
   })
   .catch((error) => console.log(`${error} did not connect`));
 
